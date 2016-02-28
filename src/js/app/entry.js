@@ -1,5 +1,8 @@
-var foo = require('./modules/foo');
+var getAnimationEvents = require('./modules/getAnimationEvents');
+var carousel = require('./modules/carousel');
 
 window.onload = function() {
-	foo("It's working again..");
+	getAnimationEvents();
+	var slides = document.getElementById('carousel').children;
+	carousel(slides);
 };

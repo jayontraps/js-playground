@@ -1,0 +1,89 @@
+.carousel__wrap {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	width: 640px;
+	height: 480px;	
+	overflow: hidden;
+}
+
+.carousel {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+}
+
+.carousel__item {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	visibility: hidden;
+	transition: all 600ms ease-out;
+}
+
+.prev {
+	position: fixed;
+	bottom: 50px;
+	left: 50px;
+
+}
+
+.next {
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+
+}
+
+.carousel__item--ontop, .is-animating {
+	z-index: 9;
+	visibility: visible;	
+}
+
+.slide-in-from-left {	
+	transform: translateX(-100%);
+	animation-name: slideFromLeft ;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+.slide-in-from-right {	
+	transform: translateX(100%);
+	animation-name: slideFromRight ;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}	
+.slide-out-to-left {	
+	transform: translateX(0);
+	animation-name: slideOutToLeft ;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+.slide-out-to-right {	
+	transform: translateX(0);
+	animation-name: slideOutToRight ;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+
+@keyframes slideFromLeft {	
+	100% { transform: translateX(0) }
+}
+
+@keyframes slideFromRight {	
+	100% { transform: translateX(0) }
+}
+@keyframes slideOutToLeft {	
+	100% { transform: translateX(-100%) }
+}
+
+@keyframes slideOutToRight {	
+	100% { transform: translateX(100%) }
+}
+
+.disabled {
+	color: red;
+}
