@@ -3,7 +3,8 @@ module.exports = function carousel(slides) {
 	// DOM els
 	var prevBtn = document.getElementById('prev'),
 		nextBtn = document.getElementById('next');	
-	// pagination
+
+	// TODO pagination...
 	for (var i = 0; i < slides.length; i++) {
 		console.log(i+1);
 	}
