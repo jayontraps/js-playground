@@ -1,6 +1,3 @@
-### Basic gulp starter kit
+### Javascript challenges
 
-Use nodes environmental variable NODE_EV to set prod:
-export NODE_EV=prod
-
-Run gulp minify-css for production
+JS excercises inspired by https://github.com/jlem/WebDevChallenge#javascriptRun gulp minify-css for production
