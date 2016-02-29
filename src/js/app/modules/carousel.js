@@ -86,6 +86,19 @@ module.exports = function carousel(slides) {
 	}
 
 
+	function moveBackTostart () {
+		animationIn = "slide-in-from-left";				
+		animationOut = "slide-out-to-right";
+		// slide out current item and remove it's onTop class									
+		slides[len].classList.add(animating, animationOut);					
+		// update state
+		state.isAnimating = true;
+		// increment state.current
+		state.current = 0;
+		// slide in new current item	
+		slides[state.current].classList.add(onTop, animating, animationIn);				
+	}
+
 
 	function navBtnStatus (position) {
 		if (position === 0) {
@@ -120,19 +133,35 @@ module.exports = function carousel(slides) {
 
 
 	(function autoSlide(){
+
+		function moveForwardInit() {
+			if (state.auto) {
+				moveForward();
+				autoSlide();
+			}
+		}
+
 	    if (state.current === len){
-	        state.current = 0;
-	        moveForward();
+	        
+	        moveBackTostart();
+
 	        if (state.auto) {
-         		setTimeout(autoSlide, 3000)	;
+         		setTimeout(autoSlide, 3000);
 	        }
 	       
+	    } else if (state.current === 0) {
+
+    		setTimeout(moveForwardInit, 3000);
+
 	    } else {
+
 	    	moveForward();
+
 	    	if (state.auto) {
-	    		setTimeout(autoSlide, 3000);
-	    	}	    	
+         		setTimeout(autoSlide, 3000);
+	        }	    	
 	    }
+
 	})();
 
 	
