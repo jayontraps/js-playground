@@ -2,4 +2,6 @@
 node_modules
 build/css
 build/js
-
+img
+js-playground.sublime-project
+js-playground.sublime-workspace
